@@ -52,7 +52,7 @@
 			let ultimoHORA = 23 -  horaATUAL;
 			let ultimoMIN = 59 - minATUAL;
 			let ultimoSEG = 59 - segATUAL;
-			if(difANO === 0 && ultimoDIA === 0 && ultimoHORA === 0 && ultimoMIN === 0 && ultimoSEG === 0){
+			if(difANO === 0 && ultimoDIA <= 0 && ultimoHORA <= 0 && ultimoMIN <= 0 && ultimoSEG <= 0){
 				AnoNovo();
 			}else{
 				RES.textContent = `${ultimoDIA}:${ultimoHORA}:${ultimoMIN}:${ultimoSEG}`;
