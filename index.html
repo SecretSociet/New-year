@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Feliz 2025</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<style>
+			body {
+				font-family: Arial, sans-serif;
+    				margin: 0;
+    				padding: 0;
+    				background: linear-gradient(100deg, #000000, #1a1a1a);
+    				color: #fff;
+    				text-align: center;
+			}
+			h1 {
+    				font-size: 2.6rem;
+    				color: #ffd700;
+    				margin-top: 20px;
+    				text-shadow: 2px 2px 5px #000;
+			}
+			#res {
+    				font-size: 2rem;
+    				margin: 20px 0;
+    				padding: 10px;
+    				border: 2px solid #ffd700;
+    				border-radius: 10px;
+    				display: inline-block;
+    				background-color: #1a1a1a;
+    				box-shadow: 0 0 10px #ffd700;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>Contagem regressiva para o ano novo</h1><br><br><br><br><br><br><br>
+		<h2 id="res"></h2><br>
+		<h1 id="ano"></h1>
+		<p style="display:none;">Olhando o meu código???</p>
+	</body>
+	<script>
+		function regresso(){
+			const RES = document.getElementById('res');
+			const ano = document.getElementById('ano');
+			const AGORA = new Date();
+			const anoATUAL = AGORA.getFullYear();
+			const diaATUAL = AGORA.getDate();
+			const horaATUAL = AGORA.getHours();
+			const minATUAL = AGORA.getMinutes();
+			const segATUAL  = AGORA.getSeconds();
+			let difANO = 2025 - anoATUAL;
+			const ultimoDIA = 31 - diaATUAL;
+			let ultimoHORA = 23 -  horaATUAL;
+			let ultimoMIN = 59 - minATUAL;
+			let ultimoSEG = 59 - segATUAL;
+			if(difANO === 0 && ultimoDIA === 0 && ultimoHORA === 0 && ultimoMIN === 0 && ultimoSEG === 0){
+				AnoNovo();
+			}else{
+				RES.textContent = `${ultimoDIA}:${ultimoHORA}:${ultimoMIN}:${ultimoSEG}`;
+			}
+			function AnoNovo(){
+				RES.textContent = 'Feliz Ano Novo';
+				ano.textContent = 'Ano atual: 2025';
+				document.body.style.backgroundImage = "url(https://static.vecteezy.com/ti/fotos-gratis/t1/50927873-2025-novo-ano-celebracao-bandeira-com-fogos-de-artificio-foto.jpeg)";
+				document.body.style.backgroundSize = "Cover";
+				document.body.style.backgroundRepeat = "no-repeat";
+			}
+
+
+			let bloqueio = false;
+
+document.addEventListener("contextmenu", function (e) {
+    e.preventDefault();
+    Mensagem("A ação não permitida.");
+});
+
+document.addEventListener("keydown", function (e) {
+    if (e.ctrlKey && e.key === "u") {
+        e.preventDefault();
+        if (!bloqueio) {
+            Mensagem("Ação não permitida!");
+            bloqueio = true;
+            setTimeout(() => {
+                bloqueio = false;
+            }, 3000);
+        }
+    }
+    if (e.key === "F12") {
+        e.preventDefault();
+        Mensagem("Ação não permitida!");
+    }
+});
+			//RES.textContent = `${ultimoDIA}:${ultimoHORA}:${ultimoMIN}:${ultimoSEG}`;
+		}
+		setInterval(regresso, 1000);
+	</script>
+</html>
